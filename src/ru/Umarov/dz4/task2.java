@@ -19,15 +19,13 @@ public class task2 {
             }
             int num = in.nextInt();
             // Анализ числа
-            if (num == 0) {
-                System.out.println("Ваше число нулевое\n");
-                break;
-            }
+
             if (num < 0) System.out.println("Ваше число является отрицательным\n");
+           if (num==0) System.out.println("Ваше число нулевое\n");
             else System.out.println("Ваше число является положительным");
             double even;
             even = num % 2;
-            if (even == 0) System.out.println("Ваше число четное\n");
+            if (even == 0 || num==0) System.out.println("Ваше число четное\n");
             else System.out.println("Ваше число не четное\n");
             in.close();
             break;

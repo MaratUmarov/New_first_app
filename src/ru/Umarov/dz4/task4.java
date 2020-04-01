@@ -30,7 +30,9 @@ public class task4 {
             }
             System.out.println();
             System.out.println("Сумма данной прогрессии");
-            int mathSum = ((2 * a1 + d * (n - 1))) / 2 * n;
+           double x;// вариант защиты числителя
+              x= ((2 * a1 + d * (n - 1)));
+            double mathSum =  x/ 2 * n;
             System.out.println(mathSum);
         }
     }
