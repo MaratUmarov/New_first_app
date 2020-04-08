@@ -99,7 +99,7 @@ public class task1 {
 
                 System.out.println(viborf);
                 double summ = in.nextDouble();
-                System.out.println(fondF);
+                System.out.println(action);
                 double summwant = in.nextDouble();
 
                 if (summ < fondF) { // условие соответствия фондов
@@ -118,7 +118,6 @@ public class task1 {
                 System.out.println(odobreno);
                 break;
             }
-
             System.out.println(viborl);
             double summ = in.nextDouble();
             System.out.println(action);
