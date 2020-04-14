@@ -20,7 +20,6 @@ class Cat extends Animal {
 
 class Fish extends Animal {
 
-
     @Override
     public String getName() {
         return "Ribka";
