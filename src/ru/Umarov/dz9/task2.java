@@ -16,14 +16,14 @@ interface Swimible {
     ;
 }
 
-abstract class Human {
+abstract class Human implements Runable,Swimible{
     public abstract String getName();
     public abstract String getAbility();
 
     abstract int getAge();
 }
 
-class Yougman extends Human implements Runable, Swimible {
+class Yougman extends Human  {
 
     @Override
     public String getName() {
@@ -53,7 +53,7 @@ class Yougman extends Human implements Runable, Swimible {
     }
 }
 
-class Oldman extends Human implements Runable, Swimible {
+class Oldman extends Human  {
 
     @Override
     public void run() {
