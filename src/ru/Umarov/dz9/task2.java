@@ -17,12 +17,18 @@ interface Swimible {
 }
 
 abstract class Human {
+    public abstract String getName();
     public abstract String getAbility();
 
     abstract int getAge();
 }
 
 class Yougman extends Human implements Runable, Swimible {
+
+    @Override
+    public String getName() {
+        return "Yougman";
+    }
 
     @Override
     public String getAbility() {
@@ -60,6 +66,11 @@ class Oldman extends Human implements Runable, Swimible {
     }
 
     @Override
+    public String getName() {
+        return "Oldman";
+    }
+
+    @Override
     public String getAbility() {
         return "get tied fast";
     }
@@ -74,10 +85,17 @@ public class task2 {
     public static void main(String[] args) {
 Yougman yougman=new Yougman();
 Oldman oldman=new Oldman();
+
+System.out.println(yougman.getName());
         System.out.println(yougman.getAbility());
         System.out.println(yougman.getAge());
         yougman.swim();
         yougman.run();
-
+        System.out.println();
+        System.out.println(oldman.getName());
+        System.out.println(oldman.getAbility());
+        System.out.println(oldman.getAge());
+        oldman.swim();
+        oldman.run();
     }
 }
