@@ -1,88 +1,96 @@
 package ru.Umarov.dz9;
 
+interface Run {
+    void run();
+}
+
+interface Swim {
+    void swim();
+}
+
+interface Fly {
+    void fly();
+}
+
 abstract class Animal {
     abstract String getName();
 }
 
- class Dog extends Animal implements Activity {
-
+class Dog extends Animal implements Run, Swim {
     @Override
     String getName() {
         return "Sobaka";
     }
 
     @Override
-    public String getRunActivity() {
-        return "Can run";
+    public void run() {
+        System.out.println("run very well");
     }
 
-     @Override
-     public String getFlyActivity() {
-         return null;
-     }
-
-     @Override
-    public String getSwimActivity() {
-        return "Can swim";
+    @Override
+    public void swim() {
+        System.out.println("can swim");
     }
 }
 
-class Cat extends Animal implements Activity {
+class Cat extends Animal implements Run, Swim {
+
     @Override
-    public String getName() {
+    String getName() {
         return "Koshka";
     }
 
     @Override
-    public String getRunActivity() {
-        return "Can run";
+    public void run() {
+        System.out.println("run very well");
     }
 
     @Override
-    public String getFlyActivity() {
-        return null;
-    }
-
-    @Override
-    public String getSwimActivity() {
-        return "Can swim";
+    public void swim() {
+        System.out.println("can swim sometimes");
     }
 }
-class Fish extends Animal implements Activity  {
+
+class Bird extends Animal implements Run, Swim, Fly {
 
     @Override
-    public String getName() {
-        return "Ribka";
-    }
-    @Override
-    public String getRunActivity() {
-        return null;
+    String getName() {
+        return "Ptichka";
     }
 
     @Override
-    public String getFlyActivity() {
-        return null;
+    public void run() {
+        System.out.println("run ");
     }
 
     @Override
-    public String getSwimActivity() {
-        return "Can swim";
+    public void swim() {
+        System.out.println("can swim");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("fly far");
     }
 }
-  interface Activity{
-public  String getRunActivity();
-public String getFlyActivity();
-public String getSwimActivity();
-}
-public  class task1 {
+
+public class task1 {
     public static void main(String[] args) {
-        Cat cat = new Cat();
         Dog dog = new Dog();
-        Fish fish = new Fish();
+        Cat cat = new Cat();
+        Bird bird = new Bird();
+        System.out.println(dog.getName());
+        dog.run();
+        dog.swim();
         System.out.println();
-
-        System.out.println(cat.getName()+" "+cat.getRunActivity()+ " "+cat.getSwimActivity());
-        System.out.println(fish.getName()+" "+fish.getSwimActivity());
-        System.out.println(dog.getName()+" "+dog.getRunActivity()+ " "+dog.getSwimActivity());
+        System.out.println(cat.getName());
+        cat.run();
+        cat.swim();
+        System.out.println();
+        System.out.println(bird.getName());
+        bird.fly();
+        bird.run();
+        bird.swim();
     }
 }
+
