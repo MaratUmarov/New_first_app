@@ -1,15 +1,19 @@
 package ru.Umarov.dz9;
 
 interface Runable {
-    default void run(){
-        String running="It's good for health";
-    };
+    default void run() {
+        String running = "It's good for health";
+    }
+
+    ;
 }
 
 interface Swimible {
-   default void swim(){
-        String swiming="swimming make You strong";
-    };
+    default void swim() {
+        String swiming = "swimming make You strong";
+    }
+
+    ;
 }
 
 abstract class Human {
@@ -33,15 +37,17 @@ class Yougman extends Human implements Runable, Swimible {
     @Override
     public void run() {
         System.out.println("run fast");
-   run();
+       // run();
     }
 
     @Override
     public void swim() {
         System.out.println("swim for long time");
+   // swim();
     }
 }
-class Oldman extends Human implements Runable,Swimible{
+
+class Oldman extends Human implements Runable, Swimible {
 
     @Override
     public void run() {
@@ -63,8 +69,15 @@ class Oldman extends Human implements Runable,Swimible{
         return 65;
     }
 }
+
 public class task2 {
     public static void main(String[] args) {
+Yougman yougman=new Yougman();
+Oldman oldman=new Oldman();
+        System.out.println(yougman.getAbility());
+        System.out.println(yougman.getAge());
+        yougman.swim();
+        yougman.run();
 
     }
 }
