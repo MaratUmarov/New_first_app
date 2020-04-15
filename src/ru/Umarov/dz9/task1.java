@@ -27,18 +27,46 @@ abstract class Animal {
     }
 }
 
-class Cat extends Animal {
+class Cat extends Animal implements Activity {
     @Override
     public String getName() {
         return "Koshka";
     }
-}
 
-class Fish extends Animal {
+    @Override
+    public String getRunActivity() {
+        return "Can run";
+    }
+
+    @Override
+    public String getFlyActivity() {
+        return null;
+    }
+
+    @Override
+    public String getSwimActivity() {
+        return "Can swim";
+    }
+}
+class Fish extends Animal implements Activity  {
 
     @Override
     public String getName() {
         return "Ribka";
+    }
+    @Override
+    public String getRunActivity() {
+        return null;
+    }
+
+    @Override
+    public String getFlyActivity() {
+        return null;
+    }
+
+    @Override
+    public String getSwimActivity() {
+        return "Can swim";
     }
 }
   interface Activity{
@@ -52,9 +80,9 @@ public  class task1 {
         Dog dog = new Dog();
         Fish fish = new Fish();
         System.out.println();
-        System.out.println(dog.getName());
-        System.out.println(cat.getName());
-        System.out.println(fish.getName());
-        System.out.println(dog.getRunActivity()+ dog.getSwimActivity());
+
+        System.out.println(cat.getName()+" "+cat.getRunActivity()+ " "+cat.getSwimActivity());
+        System.out.println(fish.getName()+" "+fish.getSwimActivity());
+        System.out.println(dog.getName()+" "+dog.getRunActivity()+ " "+dog.getSwimActivity());
     }
 }
