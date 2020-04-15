@@ -1,29 +1,27 @@
 package ru.Umarov.dz9;
 
 interface Runable {
-    default void run() {
-        String running = "It's good for health";
-    }
+    void runFast();
 
-    ;
+    void runSlow();
+
 }
 
 interface Swimible {
-    default void swim() {
-        String swiming = "swimming make You strong";
-    }
+    void swimFast();
 
-    ;
+    void swimSlow();
 }
 
-abstract class Human implements Runable,Swimible{
+abstract class Human implements Runable, Swimible {
     public abstract String getName();
+
     public abstract String getAbility();
 
     abstract int getAge();
 }
 
-class Yougman extends Human  {
+class Yougman extends Human {
 
     @Override
     public String getName() {
@@ -41,29 +39,28 @@ class Yougman extends Human  {
     }
 
     @Override
-    public void run() {
+    public void runFast() {
         System.out.println("run fast");
-       // run();
     }
 
     @Override
-    public void swim() {
+    public void runSlow() {
+
+    }
+
+    @Override
+    public void swimFast() {
         System.out.println("swim for long time");
-   // swim();
+    }
+
+    @Override
+    public void swimSlow() {
+
     }
 }
 
-class Oldman extends Human  {
+class Oldman extends Human {
 
-    @Override
-    public void run() {
-        System.out.println("Cannot run at all");
-    }
-
-    @Override
-    public void swim() {
-        System.out.println("swim on short distance");
-    }
 
     @Override
     public String getName() {
@@ -79,23 +76,43 @@ class Oldman extends Human  {
     int getAge() {
         return 65;
     }
+
+    @Override
+    public void runFast() {
+
+    }
+
+    @Override
+    public void runSlow() {
+        System.out.println("Cannot run at all");
+    }
+
+    @Override
+    public void swimFast() {
+
+    }
+
+    @Override
+    public void swimSlow() {
+        System.out.println("swim on short distance");
+    }
 }
 
 public class task2 {
     public static void main(String[] args) {
-Yougman yougman=new Yougman();
-Oldman oldman=new Oldman();
+        Yougman yougman = new Yougman();
+        Oldman oldman = new Oldman();
 
-System.out.println(yougman.getName());
+        System.out.println(yougman.getName());
         System.out.println(yougman.getAbility());
         System.out.println(yougman.getAge());
-        yougman.swim();
-        yougman.run();
+        yougman.swimFast();
+        yougman.runFast();
         System.out.println();
         System.out.println(oldman.getName());
         System.out.println(oldman.getAbility());
         System.out.println(oldman.getAge());
-        oldman.swim();
-        oldman.run();
+        oldman.swimSlow();
+        oldman.runSlow();
     }
 }
