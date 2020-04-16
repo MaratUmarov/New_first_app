@@ -21,11 +21,11 @@ abstract class Human implements Runable, Swimible {
     abstract int getAge();
 }
 
-class Yougman extends Human {
+class Youngman extends Human {
 
     @Override
     public String getName() {
-        return "Yougman";
+        return "Вася";
     }
 
     @Override
@@ -64,12 +64,12 @@ class Oldman extends Human {
 
     @Override
     public String getName() {
-        return "Oldman";
+        return "Иван Иванович";
     }
 
     @Override
     public String getAbility() {
-        return "get tied fast";
+        return "get tired fast";
     }
 
     @Override
@@ -100,14 +100,14 @@ class Oldman extends Human {
 
 public class task2 {
     public static void main(String[] args) {
-        Yougman yougman = new Yougman();
+        Youngman Youngman = new Youngman();
         Oldman oldman = new Oldman();
 
-        System.out.println(yougman.getName());
-        System.out.println(yougman.getAbility());
-        System.out.println(yougman.getAge());
-        yougman.swimFast();
-        yougman.runFast();
+        System.out.println(Youngman.getName());
+        System.out.println(Youngman.getAbility());
+        System.out.println(Youngman.getAge());
+        Youngman.swimFast();
+        Youngman.runFast();
         System.out.println();
         System.out.println(oldman.getName());
         System.out.println(oldman.getAbility());
