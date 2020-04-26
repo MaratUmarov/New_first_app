@@ -20,7 +20,8 @@ class Contract {
     public static int getContractNum(int contrNum) {
         return contrNum;
     }
-    public static String getProduct(String product){
+
+    public static String getProduct(String product) {
         return product;
     }
 }
@@ -33,9 +34,11 @@ class Act {
         Act.contrNum = contrNum;
         return contrNum;
     }
+
     private static String product;
-    public static String getProduct(String product){
-        Act.product=product;
+
+    public static String getProduct(String product) {
+        Act.product = product;
         return product;
     }
 }
@@ -45,7 +48,7 @@ public class task4 {
     public static void main(String[] args) {
 
         Data dsf = new Data();
-               System.out.println("Please input Num of Contract and Name of Product");
+        System.out.println("Please input Num of Contract and Name of Product");
         while (true) {
             Scanner scanner = new Scanner(System.in);
             boolean check = scanner.hasNextInt();
@@ -54,12 +57,12 @@ public class task4 {
                 continue;
             }
             int contrNum = scanner.nextInt();
-            var product=scanner.nextLine();
+            var product = scanner.nextLine();
 
             System.out.println(" номер контракта : " + Contract.getContractNum(contrNum) + "  " + dsf.dataDate()
-                    +"  "+Contract.getProduct(product));
+                    + "  " + Contract.getProduct(product));
             System.out.println("номер полученного акта: " + Act.getContractNum(contrNum) + "  " + dsf.dataDate()
-                    +"  "+Act.getProduct(product));
+                    + "  " + Act.getProduct(product));
 
             break;
         }
