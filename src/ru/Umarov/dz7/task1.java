@@ -21,12 +21,13 @@ public class task1 {
 
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
 
         for (Drinks dr : Drinks.values()) {
             System.out.println(dr + "  " + dr.s);
         }
         while (true) {
+            Scanner scan = new Scanner(System.in);
+
             System.out.println("Put Your money\n");
             boolean f = scan.hasNextInt();
             if (!f) {
