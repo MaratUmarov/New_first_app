@@ -7,7 +7,6 @@ import java.nio.file.Files;
 
 public class task1 {
 
-
     public static void main(String[] args) throws IOException {
 
         File myNewDir = new File("c:\\MyTryDir\\MyFirstDir");
@@ -55,6 +54,5 @@ public class task1 {
         boolean canwrite = firstFile1.canWrite();
         System.out.println(canwrite);
         System.out.println(firstFile1 + "  deleted");
-
     }
 }

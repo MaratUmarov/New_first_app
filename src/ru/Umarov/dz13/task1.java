@@ -33,8 +33,11 @@ class Child {
         } catch (Exception e) {
             System.out.println("ochen vkusno Mamochka");
         }
-    }
 
+    }
+    public void Likefood(){
+        System.out.println("syel za obe scheki");
+    }
     public void Eat_child(int eda) {
 
         switch (eda) {
@@ -42,14 +45,14 @@ class Child {
                 Child();
                 break;
             case 2:
-                System.out.println("syel za obe scheki");
+                Likefood();
 
                 break;
             case 3:
-                System.out.println("syel za obe scheki");
+                Likefood();
                 break;
             case 4:
-                System.out.println("syel za obe scheki");
+               Likefood();
                 break;
             case 5:
                 Child();
@@ -60,33 +63,32 @@ class Child {
             default:
                 throw new IllegalStateException("Unexpected value: " + eda);
         }
-
     }
 }
 
 public class task1 {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
 
         Child try_eat = new Child();
         System.out.println(Arrays.toString(Eda.values()));
 
-
-        while (true) {
+       while (true) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Choose food for the Child");
 
-            boolean bl = scan.hasNextInt();
 
-            if (!bl) {
-                System.out.println("Choose from current list Names of food");
+        boolean bl = scan.hasNextInt();
+
+                 if (!bl) {
+              System.out.println("Choose from current list Names of food");
                 continue;
-            }
+           }
             int eda = scan.nextInt();
 
             try_eat.Eat_child(eda);
 
-            break;
+           break;
         }
     }
 }
