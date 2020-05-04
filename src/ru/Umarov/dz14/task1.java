@@ -3,7 +3,6 @@ package ru.Umarov.dz14;
 import org.apache.log4j.Logger;
 
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 import static java.lang.System.out;
 
@@ -36,11 +35,12 @@ public class task1 {
             boolean f = scan.hasNextInt();
 
             try {
-                if (!f)
-                    out.println("You Should put money , no letters");
-            } catch (InputMismatchException e) {
+                if (!f) {
+                    throw new Exception("Unexpected value: " + "wrong");
+                }
+            } catch (Exception e) {
+                out.println("put money, no letters!");
                 logger.warn("wrong type of data");
-
                 continue;
             }
             int money = scan.nextInt();
