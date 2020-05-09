@@ -4,94 +4,66 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 class Eat_Exсeption extends Exception {
+    public Eat_Exсeption() {
+    }
 
+    public void eat_ExсeptionAnswer() {
+        String st = "Spasibo mamochka ochen vkusno";
+        System.out.println(st);
+    }
 }
 
-enum Eda {
-    LEMON(1),
-    YABLOKO(2),
-    KASHA(3),
-    SHASHLIK(4),
-    BROKOLI(5),
-    KAPUSTA(6);
-
-    int s;
-
-    Eda(int s) {
-        System.out.printf("%6d%n", s);
-
-    }
+enum Food {
+    LEMON,
+    YABLOKO,
+    KASHA,
+    SHASHLIK,
+    BROKOLI,
+    KAPUSTA;
 }
 
 class Child {
-
-    public void Child() {
-        Eat_Exсeption ex = new Eat_Exсeption();
-        System.out.println(" should be - beeee but....");
-        try {
-            throw ex;
-        } catch (Exception e) {
-            System.out.println("ochen vkusno Mamochka");
-        }
-
-    }
-    public void Likefood(){
-        System.out.println("syel za obe scheki");
-    }
-    public void Eat_child(int eda) {
-
-        switch (eda) {
-            case 1:
-                Child();
-                break;
-            case 2:
-                Likefood();
-
-                break;
-            case 3:
-                Likefood();
-                break;
-            case 4:
-               Likefood();
-                break;
-            case 5:
-                Child();
-                break;
-            case 6:
-                Child();
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + eda);
-        }
+    public void Eat() {
+        System.out.println("Syel za obe cheki");
     }
 }
 
 public class task1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
+        Eat_Exсeption e = new Eat_Exсeption();
         Child try_eat = new Child();
-        System.out.println(Arrays.toString(Eda.values()));
 
-       while (true) {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Choose food for the Child");
+        System.out.println(Arrays.toString(Food.values()));
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Choose food for the Child from current List");
 
+        String feedChild = scan.nextLine();
+        try {
+            switch (feedChild) {
+                case "kasha":
+                case "shashlik":
+                case "yabloko":
+                    try_eat.Eat();
+                    break;
 
-        boolean bl = scan.hasNextInt();
+                case "brokoli":
+                case "lemon":
+                case "kapusta":
+                    throw new Eat_Exсeption();
 
-                 if (!bl) {
-              System.out.println("Choose from current list Names of food");
-                continue;
-           }
-            int eda = scan.nextInt();
-
-            try_eat.Eat_child(eda);
-
-           break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + feedChild);
+            }
+        } catch (Exception ex) {
+            e.eat_ExсeptionAnswer();
         }
     }
 }
+
+
+
 
 
 
