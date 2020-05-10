@@ -3,13 +3,8 @@ package ru.Umarov.dz13;
 import java.util.Arrays;
 import java.util.Scanner;
 
-class Eat_Exсeption extends Exception {
-    public Eat_Exсeption() {
-    }
-
-    public void eat_ExсeptionAnswer() {
-        String st = "Spasibo mamochka ochen vkusno";
-        System.out.println(st);
+class EatExсeption extends Exception {
+    public EatExсeption() {
     }
 }
 
@@ -26,19 +21,20 @@ class Child {
     public void Eat() {
         System.out.println("Syel za obe cheki");
     }
+
+    public void EatExсeptionAnswer() {
+        String st = "Spasibo mamochka ochen vkusno";
+        System.out.println(st);
+    }
 }
 
 public class task1 {
-
     public static void main(String[] args) throws Exception {
-
-        Eat_Exсeption e = new Eat_Exсeption();
+        Child e = new Child();
         Child try_eat = new Child();
-
         System.out.println(Arrays.toString(Food.values()));
         Scanner scan = new Scanner(System.in);
         System.out.println("Choose food for the Child from current List");
-
         String feedChild = scan.nextLine();
         try {
             switch (feedChild) {
@@ -47,17 +43,15 @@ public class task1 {
                 case "yabloko":
                     try_eat.Eat();
                     break;
-
                 case "brokoli":
                 case "lemon":
                 case "kapusta":
-                    throw new Eat_Exсeption();
-
+                    throw new EatExсeption();
                 default:
                     throw new IllegalStateException("Unexpected value: " + feedChild);
             }
         } catch (Exception ex) {
-            e.eat_ExсeptionAnswer();
+            e.EatExсeptionAnswer();
         }
     }
 }
