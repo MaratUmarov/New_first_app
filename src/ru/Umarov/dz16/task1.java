@@ -52,7 +52,8 @@ class Library {
         }
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(bookfile));
-objectOutputStream.close();
+            objectOutputStream.writeObject(addBook);
+            objectOutputStream.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -72,11 +73,15 @@ objectOutputStream.close();
 }
 
 public class task1 {
-    public static void main(String[] args, File bookfile) throws Exception {
+    public static void main(String[] args) throws Exception {
+
 
         Library library = new Library();
+
+        File bookfile=new File("Booklist","listOfBooks.txt");
         Book book1 = new Book("bore", "me", 2001);
         Book book2 = new Book("name", "author", 2002);
+        System.out.println();
         library.addBook(book1);
         library.addBook(book2);
         library.listBook();
