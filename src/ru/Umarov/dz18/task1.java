@@ -11,20 +11,19 @@ public class task1 {
         File basicText = new File(dir, "basicText.txt");
         File secondText = new File(dir, "secondText.txt");
         boolean b = dir.mkdir();
-        String str="We try to write something in different code style!";
+        String str = "пробуем поменять кодировку";
         try {
             if (basicText.createNewFile() || secondText.createNewFile())
                 System.out.println("files had been created");
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-      try(FileWriter fileWriter=new FileWriter(basicText)){
-          fileWriter.write(str);
-       }catch (Exception e){
-          System.out.println(e.getMessage());
-       }
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(basicText), StandardCharsets.UTF_8));
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(basicText), StandardCharsets.UTF_8))) {
+            bw.write(str);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(basicText)));
              BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(secondText), Charset.forName("Windows-1251")))) {
 
             while (in.ready()) {
@@ -36,12 +35,7 @@ public class task1 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println(basicText);
-        System.out.println(secondText);
-        System.out.println();
     }
-
 }
 
 
