@@ -15,8 +15,8 @@ public class task1 {
         File renameDir = new File("c:\\MyTryDir\\MyFirstDir\\Nextdir");
         File firstFile = new File(myNewDir, "firstFile.jpg");
         File copyfirst = new File(renameDir, "copyfirst.jpg");
-
-
+        boolean crdir = myNewDir.mkdir();
+        boolean crdir2 = myNewDir1.mkdirs();
         try {
             URL u = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcROHv8ygRYprm1r7Lof07W9eX47nFX2qz-Zw6jhb4yCnheyvhec&usqp=CAU");
 
@@ -27,9 +27,7 @@ public class task1 {
         }catch (IOException e){
             System.out.println("Something goes wrong");
         }
-        boolean crdir = myNewDir.mkdir();
-        boolean crdir2 = myNewDir1.mkdirs();
-        // boolean crdir1 = myNewD.mkdir();
+                // boolean crdir1 = myNewD.mkdir();
         boolean crdir3 = myNewDir1.renameTo(renameDir);
         System.out.println(crdir);
         //  System.out.println(crdir1);
