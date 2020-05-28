@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class task2 {
     public static void print(int[] a) {
-        System.out.println("элементы массива");
-
         for (int i = 0; i < a.length; i++)
             System.out.printf("%d ", a[i]);
         System.out.println();
@@ -26,7 +24,7 @@ public class task2 {
         System.out.println("введите элементы массива");
         for (int i = 0; i < n; i++) a[i] = sc.nextInt();
         print(a);
-        for (int left =0 ; left < n; left++) {
+        for (int left = 0; left < n; left++) {
             int min = left;
             for (int i = left; i < n; i++)
                 if (a[i] > a[min])
@@ -34,6 +32,5 @@ public class task2 {
             swap(a, left, min);
             print(a);
         }
-    print(a);
     }
 }
