@@ -6,7 +6,7 @@ import java.util.ArrayList;
 class Library {
     ArrayList<Book> Books = new ArrayList<>();
 
-    public void Books(Book b) {
+    public void addBook(Book b) {
         this.Books.add(b);
     }
 
@@ -28,7 +28,7 @@ class Library {
         }
     }
 
-    public void showList(File bookfile)  {
+    public void importBooks(File bookfile)  {
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(bookfile))) {
             Books = ((ArrayList<Book>) objectInputStream.readObject());
             System.out.println(Books);
