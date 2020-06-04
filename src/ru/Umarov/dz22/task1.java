@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-class Person {
+class Person<comparator> {
     private String name;
     private int age;
 
@@ -23,22 +23,13 @@ class Person {
         return age;
     }
 
-    static class PersonSuperComparator implements Comparator<Person> {
-        static Comparator<Person> comparator = Comparator.comparing(person -> person.getName());
-
-        @Override
-        public int compare(Person o1, Person o2) {
-            return 0;
-        }
+    abstract static class PersonSuperComparator implements Comparator<Person> {
+        public static Comparator<Person> comparator = Comparator.comparing(person -> person.getName());
+        public static Comparator<Person> comparator2parameter = comparator.thenComparing(person -> person.getAge());
     }
 }
 
-abstract class SortedbyAge implements Comparator<Person> {
-    static Comparator<Person> ageComare = Comparator.comparing(person -> person.getAge());
-}
-
 public class task1 {
-
     public static void main(String[] args) {
         List<Person> personList = new ArrayList<>();
         personList.add(new Person("Rita", 25));
@@ -46,16 +37,12 @@ public class task1 {
         personList.add(new Person("Robert", 65));
         personList.add(new Person("Alla", 30));
         personList.add(new Person("Givi", 46));
-        personList.sort(PersonSuperComparator.comparator);
+        personList.sort(PersonSuperComparator.comparator2parameter);
         for (Person per : personList) {
             System.out.printf("%-10s%-10s\n", per.getName(), per.getAge());
         }
         for (int i = 0; i < 25; i++)
             System.out.print("=");
         System.out.println();
-        personList.sort(SortedbyAge.ageComare);
-        for (Person per : personList) {
-            System.out.printf("%-10s%-10s\n", per.getName(), per.getAge());
-        }
     }
 }
