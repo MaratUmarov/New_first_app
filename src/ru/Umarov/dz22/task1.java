@@ -1,7 +1,5 @@
 package ru.Umarov.dz22;
 
-import ru.Umarov.dz22.Person.PersonSuperComparator;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -22,12 +20,11 @@ class Person<comparator> {
     public int getAge() {
         return age;
     }
-
-    abstract static class PersonSuperComparator implements Comparator<Person> {
+}
+    class PersonSuperComparator {
         public static Comparator<Person> comparator = Comparator.comparing(person -> person.getName());
         public static Comparator<Person> comparator2parameter = comparator.thenComparing(person -> person.getAge());
     }
-}
 
 public class task1 {
     public static void main(String[] args) {

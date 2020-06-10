@@ -10,9 +10,9 @@ public class task1 {
                     int val = m[i][j];
                     m[i][j] = temp;
                     temp = val;
-                    int exchange = m[i].length - 1;
-                    m[i][exchange] = 0;
                 }
+                int exchange = m[i].length - 1;
+                m[i][exchange] = 0;
             }
         }
     }
