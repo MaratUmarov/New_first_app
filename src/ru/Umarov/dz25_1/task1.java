@@ -1,10 +1,10 @@
-package ru.Umarov.dz25;
+package ru.Umarov.dz25_1;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class task2 {
+public class task1 {
     public static void main(String[] args) {
         // {Вася=Иванов, Петр=Петров, Виктор=Сидоров, Сергей=Савельев, Вадим=Викторов} возвращает TRUE
         // {Вася=Иванов, Петр=Петров, Виктор=Иванов, Сергей=Савельев, Вадим=Петров} возвращает FALSE
@@ -19,7 +19,7 @@ public class task2 {
     }
 
     public static boolean isUnique(Map<String, String> map) {
-        var valueset = new HashSet<String>(map.values());
+        var valueset = new HashSet<>(map.values());
         boolean status;
         status = map.values().size() == valueset.size();
         return status;
