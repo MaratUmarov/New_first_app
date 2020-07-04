@@ -1,0 +1,64 @@
+drop table Taxi,Passengers,Orders,Location_adress;
+create table Taxi
+(
+id_Taxi  int not null constraint Taxi_id_pk Primary key,
+car varchar ,
+model varchar ,
+gosnumber varchar
+
+);
+
+create table Passengers
+ (
+ pass_id integer  not null constraint pass_id_pk Primary key,
+	 Name_pass varchar  not null
+
+ );
+
+  create table Location_adress
+  (
+  loc_id int  constraint loc_ID_pk primary key,
+	  point_Name varchar not null
+  );
+
+  create table Orders
+  (
+  id_order int constraint order_ID_pk primary key,
+	  Point_from varchar not null,
+	  Point_to varchar not null,
+	date date,
+	  order_sum int,
+	  id_pass int  constraint order_pass_id_fk references Passengers,
+	  id_taxi int  constraint order_id_Taxi_fk references Taxi
+  );
+
+  insert into taxi(id_Taxi,car,model,gosnumber)
+  values
+  (1,'Renault','Logan','A526PC116'),
+  (2,'Chevrolet','Cruze','B001AT116'),
+  (3,'BMW','3series','B525XM116'),
+  (4,'BMW','5series','A111PC116'),
+  (5,'Renault','Duster','C654PP77'),
+  (6,'Renault','Logan','Н291ПП116'),
+  (7,'Chevrolet','Cobalt','Л073ВА116');
+
+  insert into passengers (pass_id,name_pass)
+values
+(1,'Иванов'),
+(2,'Ковалева'),
+(3,'Сидоров'),
+(4,'Гатаулин'),
+(5,'Скворцова');
+
+insert into location_adress(loc_id,Point_name)
+values
+(1,'Point_A'),
+(2,'Point_B'),
+(3,'Point_C');
+
+insert into Orders(id_order,Point_from,Point_to,date,order_sum,id_pass,id_taxi)
+values
+(1,'Point_A','Point_B','2020-03-12',100,3,1),
+ (2,'Point_B','Point_C','2020-04-02',120,2,2),
+ (3,'Point_C','Point_B','2020-07-11',120,1,3),
+  (4,'Point_A','Point_C','2020-03-12',200,5,4);
